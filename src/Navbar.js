@@ -1,3 +1,4 @@
+import React from 'react';
 function Navbar() {
 	return (
 		<nav id="header" className="fixed w-full z-30 top-0 text-white">

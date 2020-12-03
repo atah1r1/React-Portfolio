@@ -1,12 +1,15 @@
-import Section from './Section';
+import React from 'react';
+import Education from './Education';
 import Navbar from "./Navbar";
 import Body from "./Body";
+import Competences from "./Competences";
 function App() {
   return (
     <>
       <Navbar />
       <Body />
-      <Section />
+      <Education />
+      <Competences />
     </>
   )
 }
