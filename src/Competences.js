@@ -15,8 +15,14 @@ import node from './images/node.png';
 
 
 function Cards({img, name}) {
+	const [stateHere, setStateHere] = useState(false);
+	const handleClick = () => {
+		console.log("clicked");
+		setStateHere(true);
+	}
 	return (
-	<div className="h-40 w-40 relative cursor-pointer mb-2" onClick={() => <Modal ModalState={true} />}>
+		<>
+	<div className="h-40 w-40 relative cursor-pointer mb-2" onClick={handleClick}>
 			<div className="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
 			<div className="absolute inset-0 transform  hover:scale-75 transition duration-300 p-2">
 			<div className="h-full w-full bg-white rounded-lg shadow-1xl">
@@ -25,6 +31,8 @@ function Cards({img, name}) {
 			</div>
 			</div>
 		</div>
+		{stateHere ? <Modal name={name} state={stateHere}/> : null}
+		</>
 	)
 }
 
@@ -48,7 +56,7 @@ function Competences() {
 
 	return (
 		<>
-<section className="bg-white border-b py-8">
+	<section className="bg-white border-b py-8">
       <div className="container max-w-5xl mx-auto m-8">
         <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
 		Competences
@@ -58,11 +66,10 @@ function Competences() {
         </div>
 		 <div className="flex flex-wrap">
 
-			{cardName.name.map((e, i) => <Cards img={cardName.image[i]} name={e}/>)}
+			{cardName.name.map((e, i) => <Cards key={i} img={cardName.image[i]} name={e}/>)}
         	</div>
       </div>
     </section>
-	<Modal />
 		</>
 		)
 }
