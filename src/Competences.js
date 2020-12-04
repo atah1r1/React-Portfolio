@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Modal from './Modal';
 import html from './images/html.png';
 import aws from './images/aws.png';
 import c from './images/c.png';
@@ -8,13 +9,17 @@ import javascript from './images/javascript.png';
 import kubernetes from './images/kubernetes.png';
 import network from './images/network.png';
 import windows from './images/windows.png';
+import reactjs from './images/react.png';
+import bug from './images/bug.png';
+import node from './images/node.png';
+
 
 function Cards({img, name}) {
 	return (
-			<div class="h-40 w-40 relative cursor-pointer mb-2">
-			<div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
-			<div class="absolute inset-0 transform  hover:scale-75 transition duration-300 p-2">
-			<div class="h-full w-full bg-white rounded-lg shadow-1xl">
+	<div className="h-40 w-40 relative cursor-pointer mb-2" onClick={() => <Modal ModalState={true} />}>
+			<div className="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
+			<div className="absolute inset-0 transform  hover:scale-75 transition duration-300 p-2">
+			<div className="h-full w-full bg-white rounded-lg shadow-1xl">
 			<img className="w-full object-contain sm:h-24" alt="home" src={img} />
 				<h1 className="text-center font-bold text-gray-800">{name}</h1>
 			</div>
@@ -26,9 +31,21 @@ function Cards({img, name}) {
 function Competences() {
 	const [cardName, setCardName] = useState(
 	{
-		name: ["Html && css", "AWS cloud ", "C programming", "Docker", "Git Repositories", "Javascript", "Kubernetes", "Network Administration", "Windows"],
-		image: [html, aws, c, docker, git, javascript, kubernetes, network, windows]
+		name: [	"Html && css",
+				"AWS cloud ",
+				"C programming",
+				"Docker",
+				"Git Repositories",
+				"Javascript",
+				"Kubernetes",
+				"Networking",
+				"Windows",
+				"React Js",
+				"Security Researcher",
+				"Node Js" ],
+		image: [html, aws, c, docker, git, javascript, kubernetes, network, windows, reactjs, bug, node]
 	})
+
 	return (
 		<>
 <section className="bg-white border-b py-8">
@@ -45,6 +62,7 @@ function Competences() {
         	</div>
       </div>
     </section>
+	<Modal />
 		</>
 		)
 }
