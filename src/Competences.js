@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import html from './images/html.png';
 import aws from './images/aws.png';
 import c from './images/c.png';
@@ -8,22 +8,27 @@ import javascript from './images/javascript.png';
 import kubernetes from './images/kubernetes.png';
 import network from './images/network.png';
 import windows from './images/windows.png';
-function Cards(props) {
-	
+
+function Cards({img, name}) {
 	return (
-	<div class="h-40 w-40 relative cursor-pointer mb-5">
-		<div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
-		<div class="absolute inset-0 transform  hover:scale-75 transition duration-300 p-2">
-		<div class="h-full w-full bg-white rounded-lg shadow-2xl">
-		<img className="w-full object-contain" alt="home" src={props.img} />
-		<h1 className="text-center">ggg</h1>
+			<div class="h-40 w-40 relative cursor-pointer mb-2">
+			<div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
+			<div class="absolute inset-0 transform  hover:scale-75 transition duration-300 p-2">
+			<div class="h-full w-full bg-white rounded-lg shadow-1xl">
+			<img className="w-full object-contain sm:h-24" alt="home" src={img} />
+				<h1 className="text-center font-bold text-gray-800">{name}</h1>
+			</div>
+			</div>
 		</div>
-		</div>
-	</div>
 	)
 }
 
 function Competences() {
+	const [cardName, setCardName] = useState(
+	{
+		name: ["Html && css", "AWS cloud ", "C programming", "Docker", "Git Repositories", "Javascript", "Kubernetes", "Network Administration", "Windows"],
+		image: [html, aws, c, docker, git, javascript, kubernetes, network, windows]
+	})
 	return (
 		<>
 <section className="bg-white border-b py-8">
@@ -35,15 +40,8 @@ function Competences() {
           <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
 		 <div className="flex flex-wrap">
-			<Cards img={html}/>
-			<Cards img={aws}/>
-			<Cards img={c}/>
-			<Cards img={docker}/>
-			<Cards img={git}/>
-			<Cards img={javascript}/>
-			<Cards img={kubernetes}/>
-			<Cards img={network}/>
-			<Cards img={windows}/>
+
+			{cardName.name.map((e, i) => <Cards img={cardName.image[i]} name={e}/>)}
         	</div>
       </div>
     </section>
