@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
 function Navbar() {
+  const name = 'Amine TAHIRI';
+  const [navbar, setNavbar] = useState(true);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+  })
+  const handleScroll = () => {
+    if (window.scrollY >= 50){
+      setNavbar(false);
+    }else setNavbar (true);
+  }
 	return (
-		<nav id="header" className="fixed w-full z-30 top-0 text-white">
+    <>
+{	navbar ?	<nav id="header" className="fixed w-full z-30 top-0 text-white">
         <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           <div className="pl-4 flex items-center">
             <a className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
               {/*Icon from: http://www.potlabicons.com/ */}
-              Amine TAHIRI
+              {name}
             </a>
           </div>
           <div className="block lg:hidden pr-4">
@@ -20,13 +32,13 @@ function Navbar() {
           <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
             <ul className="list-reset lg:flex justify-end flex-1 items-center">
               <li className="mr-3">
-              <a className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#education">Education</a>
+              <a className="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#education">Education</a>
               </li>
               <li className="mr-3">
-                <a className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/">Competences</a>
+                <a className="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#competences">Competences</a>
               </li>
               <li className="mr-3">
-                <a className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/">Projects</a>
+                <a className="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/">Projects</a>
               </li>
             </ul>
             <button id="navAction" className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
@@ -35,7 +47,8 @@ function Navbar() {
           </div>
         </div>
         <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
-      </nav>
+      </nav> : null}
+      </>
 	)
 }
 
