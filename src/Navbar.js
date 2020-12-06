@@ -38,7 +38,7 @@ function Navbar() {
                 <a className="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#competences">Competences</a>
               </li>
               <li className="mr-3">
-                <a className="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/">Projects</a>
+                <a className="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#projects">Projects</a>
               </li>
             </ul>
             <button id="navAction" className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
