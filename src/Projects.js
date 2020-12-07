@@ -19,7 +19,7 @@ function ProjectCard({name, description, img, languages, github}) {
               
               <div class="header-content inline-flex">
                 <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
-                  <div class="h-2 w-2 rounded-full m-1 bg-green-500 " ></div>
+                  <div class="h-2 w-2 rounded-full m-1 bg-blue-500 " ></div>
                 </div>
                 <div class="category-title flex-3 text-sm"> {languages}</div>
               </div>
