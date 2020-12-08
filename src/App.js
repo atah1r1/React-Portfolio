@@ -5,17 +5,19 @@ import Body from "./Body";
 import Competences from "./Competences";
 import Projects from './Projects';
 import Footer from './Footer';
-import Copyright from './Copyright'
+import Copyright from './Copyright';
+import Test from './test'
 function App() {
   return (
     <>
-      <Navbar />
+      <Test />
+      {/* <Navbar />
       <Body />
       <Education />
       <Competences />
       <Projects />
       <Footer />
-      <Copyright />
+      <Copyright /> */}
     </>
   )
 }
