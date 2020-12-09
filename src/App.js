@@ -9,26 +9,26 @@ import Copyright from './Copyright';
 import axios from 'axios';
 function App() {
   const [info, setInfo] = useState({});
+  const [education, setEducation] = useState([]);
   const getData = async () => {
     try {
   const userInfo = await axios.get("http://localhost:8000/api/")
       
-        setInfo(userInfo.data.info);  // set State
+        setInfo(userInfo.data.info);
+        setEducation(userInfo.data.educations);
     
     } catch (err) {
       console.error(err.message);
     }
   };
-    
     useEffect(()=>{
-      
       getData()
   }, [])
   return (
     <>
       <Navbar fullname ={info.full_name} />
-      <Body  about={info.mini_about} fullname ={info.full_name}/>
-      <Education />
+      <Body github={info.github} twitter={info.twitter} linkedin={info.linkedin} about={info.mini_about} fullname ={info.full_name}/>
+      <Education education={{...education}} />
       <Competences />
       <Projects />
       <Footer />
