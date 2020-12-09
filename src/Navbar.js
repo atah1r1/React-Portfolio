@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-function Navbar() {
-  const name = 'Amine TAHIRI';
+function Navbar({fullname}) {
   const [navbar, setNavbar] = useState(true);
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -18,7 +17,7 @@ function Navbar() {
           <div className="pl-4 flex items-center">
             <a className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
               {/*Icon from: http://www.potlabicons.com/ */}
-              {name}
+              {fullname}
             </a>
           </div>
           <div className="block lg:hidden pr-4">

@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './images/home.svg';
 
-function Body() {
+function Body({about, fullname}) {
 	return (
 		<>
 		<div className="pt-24">
@@ -9,10 +9,10 @@ function Body() {
 		  <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
 			<p className="uppercase tracking-loose w-full">Who I'm I ?</p>
 			<h1 className="my-4 text-5xl font-bold leading-tight">
-			  Amine TAHIRI 
+			  {fullname}
 			</h1>
 			<p className="leading-normal text-2xl mb-8">
-			  Developer && Security Researcher
+			  {about}
 			</p>
 			<div className="flex ml-2">
 				<a href="https://twitter.com/atah1r1" ><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150"><title>Twitter icon</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
