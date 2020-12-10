@@ -10,12 +10,16 @@ import axios from 'axios';
 function App() {
   const [info, setInfo] = useState({});
   const [education, setEducation] = useState([]);
+  const [competence, setCompetence] = useState([]);
+  const [project, setProject] = useState([]);
   const getData = async () => {
     try {
   const userInfo = await axios.get("http://localhost:8000/api/")
       
         setInfo(userInfo.data.info);
         setEducation(userInfo.data.educations);
+        setCompetence(userInfo.data.competences);
+        setProject(userInfo.data.projects);
     
     } catch (err) {
       console.error(err.message);
@@ -29,9 +33,9 @@ function App() {
       <Navbar fullname ={info.full_name} />
       <Body github={info.github} twitter={info.twitter} linkedin={info.linkedin} about={info.mini_about} fullname ={info.full_name}/>
       <Education education={{...education}} />
-      <Competences />
-      <Projects />
-      <Footer />
+      <Competences competence={{...competence}} />
+      <Projects project={{...project}}/>
+      <Footer info={info}/>
       <Copyright />
     </>
   )
